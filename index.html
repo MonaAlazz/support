@@ -13,75 +13,82 @@
             font-family: 'Arial', sans-serif;
         }
         body {
-            background: linear-gradient(to bottom, #1e1e2f, #343457);
-            color: white;
+            background: #f7f7f7;
+            color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow: hidden;
+            padding: 20px;
         }
         .container {
-            text-align: center;
-            padding: 20px;
             max-width: 600px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 2s ease-in-out;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            font-size: 2.5em;
+            font-size: 2em;
             margin-bottom: 20px;
-            color: #ffc107;
-            animation: slideDown 1.5s ease-in-out;
+            color: #333;
+            text-align: center;
+            border-bottom: 2px solid #ffc107;
+            display: inline-block;
+            padding-bottom: 5px;
         }
         p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            animation: fadeIn 3s ease-in-out;
-        }
-        .btn {
-            background: #ffc107;
-            color: #1e1e2f;
-            padding: 10px 20px;
             font-size: 1em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s ease-in-out;
-            animation: bounce 3s infinite ease-in-out;
-        }
-        .btn:hover {
-            background: #ff9f07;
-            transform: scale(1.1);
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
         }
         .form-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 15px;
         }
-        input, textarea {
+        label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+        select, input, textarea {
+            width: 100%;
             padding: 10px;
             font-size: 1em;
-            border: none;
+            border: 1px solid #ddd;
             border-radius: 5px;
             outline: none;
-            transition: 0.3s ease;
-            width: 100%;
+            transition: border-color 0.3s ease;
         }
-        input:focus, textarea:focus {
-            background: #f0f0f0;
+        select:focus, input:focus, textarea:focus {
+            border-color: #ffc107;
         }
         textarea {
-            resize: none;
-            height: 100px;
+            resize: vertical;
+            height: 120px;
+        }
+        button {
+            background: #ffc107;
+            color: #ffffff;
+            font-size: 1em;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #e6ac06;
         }
         footer {
-            margin-top: 30px;
-            font-size: 0.8em;
-            color: rgba(255, 255, 255, 0.7);
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #888;
+            text-align: center;
         }
         footer a {
             color: #ffc107;
@@ -90,48 +97,31 @@
         footer a:hover {
             text-decoration: underline;
         }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes slideDown {
-            from {
-                transform: translateY(-50px);
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Ghost Kickout Support</h1>
-        <p>If you are experiencing any issues or have questions, please let us know. Fill out the form below, and we'll assist you as soon as possible.</p>
+        <h1>Support</h1>
+        <p>If you have any questions, encounter an issue, or want to provide feedback about Ghost Kickout, please fill out the form below. Our team will respond as soon as possible.</p>
         <form action="mailto:newmonaalazz@gmail.com" method="POST" enctype="text/plain" class="form-container">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="issue" placeholder="Describe your issue here..." required></textarea>
-            <button type="submit" class="btn">Submit</button>
+            <label for="support-type">Select the type of support:</label>
+            <select id="support-type" name="subject" required>
+                <option value="Issue">Issue</option>
+                <option value="Feedback">Feedback</option>
+                <option value="Feature Request">Feature Request</option>
+                <option value="Other">Other</option>
+            </select>
+            <label for="name">Your Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+            <label for="email">Your Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+            <label for="message">Describe your request:</label>
+            <textarea id="message" name="message" placeholder="Provide details about your issue, feedback, or request..." required></textarea>
+            <button type="submit">Submit</button>
         </form>
         <footer>
             <p>© 2024 Ghost Kickout by Mona Alazzani. All Rights Reserved.</p>
+            <p>Email us directly: <a href="mailto:newmonaalazz@gmail.com">newmonaalazz@gmail.com</a></p>
         </footer>
     </div>
 </body>
